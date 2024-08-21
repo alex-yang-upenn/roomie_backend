@@ -11,9 +11,10 @@ RUN pip install --upgrade pip
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY --chmod=+x ./entrypoint.sh .
-RUN sed -i "s/\r$//g" /usr/src/roomie_backend/entrypoint.sh
-
 COPY . .
 
-ENTRYPOINT [ "/usr/src/roomie_backend/entrypoint.sh" ]
+COPY ./entrypoint.sh /usr/src/scripts/
+RUN sed -i "s/\r$//g" /usr/src/scripts/entrypoint.sh
+RUN chmod +x /usr/src/scripts/entrypoint.sh
+
+ENTRYPOINT [ "/usr/src/scripts/entrypoint.sh" ]
