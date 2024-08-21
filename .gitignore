@@ -1,2 +1,2 @@
 roomie_backend/env/
-.env
+*.env
