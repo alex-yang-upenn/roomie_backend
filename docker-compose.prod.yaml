@@ -14,6 +14,7 @@ services:
     volumes:
       - ./roomie_backend/:/usr/src/roomie_backend/
       - media_volume:/usr/src/roomie_backend/media
+      - admin_volume:/usr/src/roomie_backend/static
     expose:
       - 8000
     depends_on:
