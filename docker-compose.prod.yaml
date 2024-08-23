@@ -7,6 +7,7 @@ services:
       - web
     volumes:
       - media_volume:/usr/src/roomie_backend/media
+      - admin_volume:/usr/src/roomie_backend/static
   web:
     build: ./roomie_backend
     command: gunicorn roomie_backend.wsgi:application --bind 0.0.0.0:8000
@@ -35,3 +36,4 @@ services:
 volumes:
   postgres_data:
   media_volume:
+  admin_volume:
